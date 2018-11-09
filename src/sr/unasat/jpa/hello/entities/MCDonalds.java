@@ -8,14 +8,14 @@ public class MCDonaldsEntity implements Serializable {
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
-    @Column(name="address")
+    @Column(name="address", nullable="false")
     private String adress;
-    @Column(name="phone")
+    @Column(name="phone", nullable="false")
     private String phone;
-    @Column(name="code", unique="true")
+    @Column(name="code", nullable="false", unique="true")
     private String code;
 
-    public MCDonalds(int id, String adress, String phone, String code) {
+    public MCDonaldsEntity(int id, String adress, String phone, String code) {
         this.id = id;
         this.adress = adress;
         this.phone = phone;
