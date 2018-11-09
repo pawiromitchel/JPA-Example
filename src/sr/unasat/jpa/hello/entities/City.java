@@ -16,7 +16,7 @@ public class City {
     @Column(name="description", nullable="false")
     private String description;
 
-    @OneToMany(mappedBy="id",cascade=CascadeType.ALL)
+    @OneToMany(mappedBy="city")
     private Set<MCDonaldsEntity> mcDonaldsEntities = new HashSet<MCDonaldsEntity>();
 
     public City(int id, String name, String description) {

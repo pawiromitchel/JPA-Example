@@ -18,24 +18,24 @@ public class MCDonaldsEntity implements Serializable {
     @Column(name="code", nullable="false", unique="true")
     private String code;
 
-    @ManyToOne (cascade=CascadeType.ALL)
-    @Column(name="city_fk")
-    private City city_fk;
+    @ManyToOne
+    @JoinColumn(name="city_fk")
+    private City city;
 
-    public MCDonaldsEntity(int id, String adress, String phone, String code, City city_fk) {
+    public MCDonaldsEntity(int id, String adress, String phone, String code, City city) {
         this.id = id;
         this.adress = adress;
         this.phone = phone;
         this.code = code;
-        this.city_fk = city_fk;
+        this.city = city;
     }
 
-    public City getCity_fk() {
-        return city_fk;
+    public City getCity() {
+        return city;
     }
 
-    public void setCity_fk(City city_fk) {
-        this.city_fk = city_fk;
+    public void setCity(City city) {
+        this.city = city;
     }
 
     public int getId() {
