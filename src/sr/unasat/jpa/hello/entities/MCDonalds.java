@@ -8,18 +8,34 @@ public class MCDonaldsEntity implements Serializable {
     @Id @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
     private int id;
+
     @Column(name="address", nullable="false")
     private String adress;
+
     @Column(name="phone", nullable="false")
     private String phone;
+
     @Column(name="code", nullable="false", unique="true")
     private String code;
 
-    public MCDonaldsEntity(int id, String adress, String phone, String code) {
+    @ManyToOne (cascade=CascadeType.ALL)
+    @Column(name="city_fk")
+    private City city_fk;
+
+    public MCDonaldsEntity(int id, String adress, String phone, String code, City city_fk) {
         this.id = id;
         this.adress = adress;
         this.phone = phone;
         this.code = code;
+        this.city_fk = city_fk;
+    }
+
+    public City getCity_fk() {
+        return city_fk;
+    }
+
+    public void setCity_fk(City city_fk) {
+        this.city_fk = city_fk;
     }
 
     public int getId() {
